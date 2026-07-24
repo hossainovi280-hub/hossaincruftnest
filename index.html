@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hossain Craftnest | Premium Craft Materials — Doha, Qatar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FAF7F1;
+    --ivory-2:#F1ECE1;
+    --ink:#15130F;
+    --ink-soft:#3A362E;
+    --gold:#C9A227;
+    --gold-bright:#E7C558;
+    --gold-deep:#8A6D1B;
+    --line:rgba(21,19,15,0.12);
+    --white:#FFFFFF;
+    --danger:#A3402F;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Poppins',sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:600;
+    letter-spacing:0.01em;
+    color:var(--ink);
+  }
+  .ar{ font-family:'Amiri',serif; direction:rtl; }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  button{font-family:inherit; cursor:pointer; border:none; background:none;}
+  ::selection{background:var(--gold); color:var(--ink);}
+
+  /* --- stitched gold divider, the signature motif --- */
+  .stitch{
+    height:14px;
+    width:100%;
+    background-image: repeating-linear-gradient(90deg, var(--gold) 0 10px, transparent 10px 20px);
+    background-size: 20px 2px;
+    background-repeat: repeat-x;
+    background-position: center;
+    opacity:0.85;
+  }
+  .stitch.small{height:8px; background-size:14px 2px;}
+
+  /* --- Header --- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(250,247,241,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-wrap{
+    max-width:1200px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px;
+  }
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand img{height:44px; width:44px; object-fit:contain; border-radius:50%; border:1.5px solid var(--gold);}
+  .brand .names{display:flex; flex-direction:column; line-height:1.1;}
+  .brand .name-en{font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:600; letter-spacing:0.03em;}
+  .brand .name-ar{font-family:'Amiri',serif; font-size:0.8rem; color:var(--gold-deep); direction:rtl;}
+  nav.links{display:flex; gap:30px; align-items:center;}
+  nav.links a{
+    font-size:0.82rem; text-transform:uppercase; letter-spacing:0.12em;
+    color:var(--ink-soft); position:relative; padding:4px 0;
+  }
+  nav.links a.active, nav.links a:hover{color:var(--ink);}
+  nav.links a.active::after{
+    content:''; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:var(--gold);
+  }
+  .nav-actions{display:flex; align-items:center; gap:16px;}
+  .cart-btn{position:relative; font-size:1.25rem;}
+  .cart-count{
+    position:absolute; top:-8px; right:-10px;
+    background:var(--gold); color:var(--ink); font-size:0.65rem; font-weight:700;
+    width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  }
+  .burger{display:none; font-size:1.4rem;}
+
+  @media (max-width: 860px){
+    nav.links{
+      position:fixed; top:76px; left:0; right:0; bottom:0;
+      background:var(--ivory); flex-direction:column; align-items:flex-start;
+      padding:30px 28px; gap:24px; transform:translateX(-100%);
+      transition:transform .35s ease; border-top:1px solid var(--line);
+    }
+    nav.links.open{transform:translateX(0);}
+    nav.links a{font-size:1rem;}
+    .burger{display:block;}
+  }
+
+  main{max-width:1200px; margin:0 auto; padding:0 24px;}
+
+  /* --- Buttons --- */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:14px 30px; font-size:0.82rem; letter-spacing:0.12em; text-transform:uppercase;
+    font-weight:600; border-radius:2px; transition:all .25s ease;
+  }
+  .btn-gold{background:var(--ink); color:var(--gold-bright); border:1px solid var(--ink);}
+  .btn-gold:hover{background:var(--gold-deep); color:var(--white); border-color:var(--gold-deep);}
+  .btn-outline{background:transparent; color:var(--ink); border:1px solid var(--ink);}
+  .btn-outline:hover{background:var(--ink); color:var(--gold-bright);}
+  .btn-whatsapp{background:#1F8A4C; color:#fff; border:1px solid #1F8A4C;}
+  .btn-whatsapp:hover{background:#166a3a;}
+  .btn-block{width:100%;}
+  .btn-sm{padding:9px 16px; font-size:0.7rem;}
+
+  /* --- Hero --- */
+  .hero{
+    position:relative; padding:90px 24px 70px; text-align:center;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(201,162,39,0.10), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(201,162,39,0.10), transparent 40%);
+  }
+  .hero .eyebrow{
+    font-size:0.75rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold-deep); font-weight:600; margin-bottom:18px;
+  }
+  .hero h1{font-size:clamp(2.4rem, 6vw, 4.2rem); line-height:1.08; max-width:900px; margin:0 auto 22px;}
+  .hero p.sub{font-size:1.05rem; color:var(--ink-soft); max-width:560px; margin:0 auto 36px;}
+  .hero .sub-ar{font-size:1rem; color:var(--ink-soft); margin-bottom:12px;}
+
+  section{padding:70px 0;}
+  .section-head{text-align:center; margin-bottom:46px;}
+  .section-head .eyebrow{font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-deep); font-weight:600; margin-bottom:10px;}
+  .section-head h2{font-size:clamp(1.8rem,4vw,2.6rem);}
+
+  /* --- category strip --- */
+  .cat-strip{display:flex; gap:14px; overflow-x:auto; padding:6px 2px 18px; scrollbar-width:none;}
+  .cat-strip::-webkit-scrollbar{display:none;}
+  .cat-chip{
+    flex:0 0 auto; padding:10px 20px; border:1px solid var(--line); border-radius:30px;
+    font-size:0.78rem; letter-spacing:0.04em; white-space:nowrap; background:var(--white);
+  }
+  .cat-chip.active, .cat-chip:hover{background:var(--ink); color:var(--gold-bright); border-color:var(--ink);}
+
+  /* --- product grid --- */
+  .grid{display:grid; grid-template-columns:repeat(4,1fr); gap:26px;}
+  @media (max-width:980px){.grid{grid-template-columns:repeat(3,1fr);}}
+  @media (max-width:700px){.grid{grid-template-columns:repeat(2,1fr); gap:14px;}}
+
+  .card{
+    background:var(--white); border:1px solid var(--line); border-radius:3px; overflow:hidden;
+    transition:transform .25s ease, box-shadow .25s ease; cursor:pointer; display:flex; flex-direction:column;
+  }
+  .card:hover{transform:translateY(-4px); box-shadow:0 14px 30px rgba(21,19,15,0.10);}
+  .card .thumb{position:relative; aspect-ratio:1/1; overflow:hidden; background:var(--ivory-2);}
+  .card .thumb img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
+  .card:hover .thumb img{transform:scale(1.06);}
+  .badge{
+    position:absolute; top:10px; left:10px; font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase;
+    padding:5px 10px; border-radius:20px; font-weight:600;
+  }
+  .badge.out{background:var(--danger); color:#fff;}
+  .badge.in{background:var(--gold); color:var(--ink);}
+  .card .info{padding:16px 16px 18px; flex:1; display:flex; flex-direction:column; gap:6px;}
+  .card .cat-tag{font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-deep); font-weight:600;}
+  .card .pname{font-family:'Cormorant Garamond',serif; font-size:1.25rem; font-weight:600;}
+  .card .price{font-size:0.95rem; font-weight:600; margin-top:auto; padding-top:6px;}
+
+  /* --- filters bar (all products page) --- */
+  .products-layout{display:grid; grid-template-columns:260px 1fr; gap:36px; align-items:start;}
+  @media (max-width:860px){.products-layout{grid-template-columns:1fr;}}
+  .filter-panel{
+    background:var(--white); border:1px solid var(--line); padding:22px; position:sticky; top:100px;
+  }
+  .filter-panel h3{font-size:1.1rem; margin-bottom:16px;}
+  .filter-group{margin-bottom:22px;}
+  .filter-group .flabel{font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); font-weight:600; margin-bottom:10px; display:block;}
+  .filter-list label{display:flex; align-items:center; gap:8px; font-size:0.85rem; margin-bottom:8px; cursor:pointer;}
+  select{
+    width:100%; padding:10px; border:1px solid var(--line); background:var(--ivory); font-family:inherit; font-size:0.85rem;
+  }
+  .swatch-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .swatch{
+    width:26px; height:26px; border-radius:50%; border:1.5px solid var(--line); cursor:pointer; position:relative;
+  }
+  .swatch.selected::after{content:'✓'; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:0.75rem; color:#fff; text-shadow:0 0 2px #000;}
+  .toolbar{display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:12px;}
+  .count-text{font-size:0.85rem; color:var(--ink-soft);}
+
+  /* --- About --- */
+  .about-wrap{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;}
+  @media (max-width:860px){.about-wrap{grid-template-columns:1fr;}}
+  .about-visual{
+    aspect-ratio:4/5; background:linear-gradient(160deg, var(--ink), #2b271c);
+    display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;
+  }
+  .about-visual img{width:130px; opacity:0.95;}
+  .about-visual::before{
+    content:''; position:absolute; inset:16px; border:1px solid rgba(231,197,88,0.35);
+  }
+  .stat-row{display:flex; gap:36px; margin-top:26px;}
+  .stat b{font-family:'Cormorant Garamond',serif; font-size:2rem; display:block; color:var(--gold-deep);}
+  .stat span{font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft);}
+
+  /* --- Contact --- */
+  .contact-wrap{display:grid; grid-template-columns:1fr 1fr; gap:50px;}
+  @media (max-width:860px){.contact-wrap{grid-template-columns:1fr;}}
+  .info-card{background:var(--white); border:1px solid var(--line); padding:28px;}
+  .info-row{display:flex; gap:14px; margin-bottom:20px; align-items:flex-start;}
+  .info-row .ic{font-size:1.2rem; width:26px;}
+  .info-row b{display:block; font-size:0.9rem; margin-bottom:2px;}
+  .info-row span, .info-row a{font-size:0.88rem; color:var(--ink-soft);}
+  .map-frame{width:100%; height:220px; border:1px solid var(--line); margin-top:20px;}
+  .form-field{margin-bottom:16px;}
+  .form-field label{display:block; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px; color:var(--ink-soft);}
+  .form-field input, .form-field textarea{
+    width:100%; padding:12px 14px; border:1px solid var(--line); background:var(--white); font-family:inherit; font-size:0.9rem;
+  }
+  .form-field textarea{resize:vertical; min-height:110px;}
+
+  /* --- Footer --- */
+  footer{background:var(--ink); color:#D9D3C2; margin-top:60px;}
+  .foot-wrap{max-width:1200px; margin:0 auto; padding:56px 24px 26px; display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:40px;}
+  @media (max-width:700px){.foot-wrap{grid-template-columns:1fr; gap:30px;}}
+  footer h4{font-family:'Cormorant Garamond',serif; color:var(--gold-bright); font-size:1.1rem; margin-bottom:14px;}
+  footer a, footer p{color:#B8B2A0; font-size:0.85rem; margin-bottom:8px; display:block;}
+  footer a:hover{color:var(--gold-bright);}
+  .foot-bottom{text-align:center; padding:18px; border-top:1px solid rgba(255,255,255,0.08); font-size:0.75rem; color:#7C7666;}
+
+  /* --- Single product page --- */
+  .pd-wrap{display:grid; grid-template-columns:1fr 1fr; gap:50px;}
+  @media (max-width:860px){.pd-wrap{grid-template-columns:1fr;}}
+  .pd-main-img{aspect-ratio:1/1; background:var(--ivory-2); overflow:hidden; border:1px solid var(--line);}
+  .pd-main-img img{width:100%; height:100%; object-fit:cover;}
+  .pd-thumbs{display:flex; gap:10px; margin-top:12px;}
+  .pd-thumbs .t{width:64px; height:64px; border:1.5px solid var(--line); cursor:pointer; overflow:hidden;}
+  .pd-thumbs .t.active{border-color:var(--gold);}
+  .pd-thumbs .t img{width:100%; height:100%; object-fit:cover;}
+  .pd-cat{font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-deep); font-weight:600; margin-bottom:8px;}
+  .pd-name{font-size:2.1rem; margin-bottom:8px;}
+  .pd-price{font-size:1.3rem; font-weight:600; color:var(--ink); margin-bottom:16px;}
+  .pd-desc{color:var(--ink-soft); font-size:0.92rem; margin-bottom:22px;}
+  .opt-block{margin-bottom:22px;}
+  .opt-label{font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; margin-bottom:10px;}
+  .size-row{display:flex; flex-wrap:wrap; gap:10px;}
+  .size-chip{
+    padding:8px 16px; border:1px solid var(--line); font-size:0.82rem; border-radius:2px; cursor:pointer;
+  }
+  .size-chip.selected{background:var(--ink); color:var(--gold-bright); border-color:var(--ink);}
+  .qty-row{display:flex; align-items:center; gap:14px;}
+  .qty-box{display:flex; align-items:center; border:1px solid var(--line);}
+  .qty-box button{width:38px; height:38px; font-size:1.1rem;}
+  .qty-box span{width:40px; text-align:center; font-weight:600;}
+  .pd-actions{display:flex; flex-direction:column; gap:12px; margin-top:10px;}
+  .pd-actions .row2{display:flex; gap:12px;}
+  .pd-actions .row2 .btn{flex:1;}
+  .stock-line{font-size:0.85rem; margin-bottom:18px; font-weight:600;}
+  .stock-line.in{color:#1F8A4C;}
+  .stock-line.out{color:var(--danger);}
+
+  /* --- Cart page --- */
+  .cart-item{
+    display:grid; grid-template-columns:80px 1fr auto auto; gap:16px; align-items:center;
+    padding:18px 0; border-bottom:1px solid var(--line);
+  }
+  @media (max-width:600px){.cart-item{grid-template-columns:60px 1fr; row-gap:10px;}}
+  .cart-item img{width:80px; height:80px; object-fit:cover; border:1px solid var(--line);}
+  .ci-name{font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:600;}
+  .ci-meta{font-size:0.78rem; color:var(--ink-soft);}
+  .ci-remove{font-size:0.75rem; color:var(--danger); text-decoration:underline; margin-top:6px;}
+  .cart-summary{background:var(--white); border:1px solid var(--line); padding:26px; position:sticky; top:100px;}
+  .sum-row{display:flex; justify-content:space-between; font-size:0.9rem; margin-bottom:12px;}
+  .sum-row.total{font-weight:700; font-size:1.15rem; border-top:1px solid var(--line); padding-top:14px; margin-top:14px;}
+  .empty-state{text-align:center; padding:80px 20px; color:var(--ink-soft);}
+  .empty-state .big{font-size:3rem; margin-bottom:16px;}
+
+  .toast{
+    position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(120%);
+    background:var(--ink); color:var(--gold-bright); padding:14px 26px; border-radius:3px; font-size:0.85rem;
+    transition:transform .35s ease; z-index:999; box-shadow:0 10px 30px rgba(0,0,0,0.25);
+  }
+  .toast.show{transform:translateX(-50%) translateY(0);}
+
+  .whatsapp-float{
+    position:fixed; bottom:24px; right:24px; background:#1F8A4C; color:#fff; width:56px; height:56px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-size:1.6rem; box-shadow:0 8px 20px rgba(0,0,0,0.25); z-index:90;
+  }
+  .related-title{margin:60px 0 24px;}
+  .breadcrumb{font-size:0.8rem; color:var(--ink-soft); margin-bottom:24px;}
+  .breadcrumb a:hover{color:var(--gold-deep);}
+  .page-title-block{text-align:center; margin-bottom:36px;}
+  .page{display:none;}
+  .page.active{display:block;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <a href="#home" class="brand" onclick="closeMenu()">
+      <img src="https://i.ibb.co/yFf2r0Vf/A3-A32251-F5-BB-49-D9-BDB6-D0189-E858817.png" alt="Hossain Craftnest logo">
+      <div class="names">
+        <span class="name-en">Hossain Craftnest</span>
+        <span class="name-ar">هوسين كرافت نيست</span>
+      </div>
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="#home" data-route="home" onclick="closeMenu()">Home</a>
+      <a href="#products" data-route="products" onclick="closeMenu()">All Products</a>
+      <a href="#about" data-route="about" onclick="closeMenu()">About Us</a>
+      <a href="#contact" data-route="contact" onclick="closeMenu()">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#cart" class="cart-btn" title="Cart">🛍<span class="cart-count" id="cartCount">0</span></a>
+      <button class="burger" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+<div class="stitch"></div>
+
+<main>
+
+  <!-- HOME PAGE -->
+  <section class="page" id="page-home">
+    <div class="hero">
+      <div class="eyebrow">Doha · Qatar</div>
+      <h1>Premium Craft Materials<br>for Every Design</h1>
+      <p class="sub-ar ar">مواد حرفية فاخرة لكل تصميم</p>
+      <p class="sub">High-quality craft, sewing, embroidery &amp; abaya accessories in Qatar.</p>
+      <a href="#products" class="btn btn-gold">Shop Now</a>
+    </div>
+    <div class="stitch small"></div>
+
+    <div class="section-head" style="margin-top:60px;">
+      <div class="eyebrow">Curated Categories</div>
+      <h2>Shop by Category</h2>
+    </div>
+    <div class="cat-strip" id="homeCatStrip"></div>
+
+    <div class="section-head" style="margin-top:40px;">
+      <div class="eyebrow">Handpicked</div>
+      <h2>Featured Products</h2>
+    </div>
+    <div class="grid" id="featuredGrid"></div>
+    <div style="text-align:center; margin-top:40px;">
+      <a href="#products" class="btn btn-outline">View All Products</a>
+    </div>
+
+    <div class="stitch" style="margin-top:70px;"></div>
+    <div style="display:flex; justify-content:center; gap:60px; flex-wrap:wrap; padding:50px 0; text-align:center;">
+      <div><b class="display" style="font-size:1.8rem;">🚚</b><div style="font-size:0.85rem; margin-top:8px; color:var(--ink-soft);">Delivery All Over Doha</div></div>
+      <div><b class="display" style="font-size:1.8rem;">💵</b><div style="font-size:0.85rem; margin-top:8px; color:var(--ink-soft);">Cash on Delivery</div></div>
+      <div><b class="display" style="font-size:1.8rem;">📲</b><div style="font-size:0.85rem; margin-top:8px; color:var(--ink-soft);">Order via WhatsApp</div></div>
+    </div>
+  </section>
+
+  <!-- ALL PRODUCTS PAGE -->
+  <section class="page" id="page-products">
+    <div class="page-title-block">
+      <div class="eyebrow" style="font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-deep); font-weight:600;">Catalog</div>
+      <h2 style="font-size:clamp(1.8rem,4vw,2.6rem);">All Products</h2>
+    </div>
+    <div class="products-layout">
+      <aside class="filter-panel">
+        <h3>Filters</h3>
+        <div class="filter-group">
+          <span class="flabel">Category</span>
+          <div class="filter-list" id="catFilterList"></div>
+        </div>
+        <div class="filter-group">
+          <span class="flabel">Color</span>
+          <div class="swatch-row" id="colorFilterRow"></div>
+        </div>
+        <div class="filter-group">
+          <span class="flabel">Availability</span>
+          <div class="filter-list">
+            <label><input type="checkbox" id="inStockOnly" onchange="renderProducts()"> In Stock Only</label>
+          </div>
+        </div>
+        <div class="filter-group">
+          <span class="flabel">Sort by Price</span>
+          <select id="sortSelect" onchange="renderProducts()">
+            <option value="none">Default</option>
+            <option value="low">Low → High</option>
+            <option value="high">High → Low</option>
+          </select>
+        </div>
+        <button class="btn btn-outline btn-block btn-sm" onclick="clearFilters()">Clear Filters</button>
+      </aside>
+      <div>
+        <div class="toolbar">
+          <span class="count-text" id="resultCount"></span>
+        </div>
+        <div class="grid" id="allProductsGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SINGLE PRODUCT PAGE -->
+  <section class="page" id="page-product">
+    <div class="breadcrumb"><a href="#products">All Products</a> / <span id="pdBreadCat"></span> / <span id="pdBreadName"></span></div>
+    <div class="pd-wrap">
+      <div>
+        <div class="pd-main-img"><img id="pdMainImg" src="" alt=""></div>
+        <div class="pd-thumbs" id="pdThumbs"></div>
+      </div>
+      <div>
+        <div class="pd-cat" id="pdCat"></div>
+        <h1 class="pd-name" id="pdName"></h1>
+        <div class="pd-price" id="pdPrice"></div>
+        <div class="stock-line" id="pdStock"></div>
+        <p class="pd-desc" id="pdDesc"></p>
+
+        <div class="opt-block" id="pdColorBlock">
+          <div class="opt-label">Color</div>
+          <div class="swatch-row" id="pdColorRow"></div>
+        </div>
+        <div class="opt-block" id="pdSizeBlock">
+          <div class="opt-label">Size</div>
+          <div class="size-row" id="pdSizeRow"></div>
+        </div>
+        <div class="opt-block">
+          <div class="opt-label">Quantity</div>
+          <div class="qty-row">
+            <div class="qty-box">
+              <button onclick="changeQty(-1)">−</button>
+              <span id="pdQty">1</span>
+              <button onclick="changeQty(1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pd-actions">
+          <div class="row2">
+            <button class="btn btn-outline" onclick="addToCart(false)">Add to Cart</button>
+            <button class="btn btn-gold" onclick="addToCart(true)">Buy Now</button>
+          </div>
+          <button class="btn btn-whatsapp btn-block" onclick="whatsappOrder()">📲 Order via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="related-title">You May Also Like</h3>
+    <div class="grid" id="relatedGrid"></div>
+  </section>
+
+  <!-- ABOUT PAGE -->
+  <section class="page" id="page-about">
+    <div class="page-title-block">
+      <div class="eyebrow" style="font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-deep); font-weight:600;">Our Story</div>
+      <h2 style="font-size:clamp(1.8rem,4vw,2.6rem);">About Hossain Craftnest</h2>
+    </div>
+    <div class="about-wrap">
+      <div class="about-visual">
+        <img src="https://i.ibb.co/yFf2r0Vf/A3-A32251-F5-BB-49-D9-BDB6-D0189-E858817.png" alt="Hossain Craftnest logo">
+      </div>
+      <div>
+        <p style="font-size:1.05rem; color:var(--ink-soft); margin-bottom:18px;">Hossain Craftnest is a trusted craft materials and accessories store based in Doha, Qatar. We provide premium-quality products for abaya making, tailoring, embroidery, fashion design, and DIY craft projects.</p>
+        <p style="font-size:1.05rem; color:var(--ink-soft);">Our goal is to deliver high-quality materials at affordable prices with excellent customer service.</p>
+        <div class="stat-row">
+          <div class="stat"><b>13+</b><span>Product Categories</span></div>
+          <div class="stat"><b>100%</b><span>Doha Delivery</span></div>
+          <div class="stat"><b>COD</b><span>Cash on Delivery</span></div>
+        </div>
+        <a href="#products" class="btn btn-gold" style="margin-top:34px;">Explore Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT PAGE -->
+  <section class="page" id="page-contact">
+    <div class="page-title-block">
+      <div class="eyebrow" style="font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-deep); font-weight:600;">Get In Touch</div>
+      <h2 style="font-size:clamp(1.8rem,4vw,2.6rem);">Contact Us</h2>
+    </div>
+    <div class="contact-wrap">
+      <div>
+        <div class="info-card">
+          <div class="info-row"><span class="ic">📍</span><div><b>Location</b><span>Al Sadd, Doha, Qatar — behind Max's Restaurant</span></div></div>
+          <div class="info-row"><span class="ic">📱</span><div><b>WhatsApp</b><a href="https://wa.me/97433173729" target="_blank">+974 3317 3729</a></div></div>
+          <div class="info-row"><span class="ic">✉️</span><div><b>Email</b><a href="mailto:hossain.craftnest1122@gmail.com">hossain.craftnest1122@gmail.com</a></div></div>
+          <div class="info-row"><span class="ic">📷</span><div><b>Instagram</b><a href="https://instagram.com/hossain_craftnest" target="_blank">@hossain_craftnest</a></div></div>
+          <a href="https://wa.me/97433173729" target="_blank" class="btn btn-whatsapp btn-block" style="margin-top:10px;">Chat on WhatsApp</a>
+          <iframe class="map-frame" loading="lazy" src="https://www.google.com/maps?q=Al+Sadd+Doha+Qatar&output=embed"></iframe>
+          <a href="https://maps.app.goo.gl/W8vCH3J9kftM4hr46?g_st=ic" target="_blank" style="display:block; margin-top:10px; font-size:0.82rem; color:var(--gold-deep); text-decoration:underline;">Open in Google Maps</a>
+        </div>
+      </div>
+      <div>
+        <div class="info-card">
+          <div class="form-field"><label>Name</label><input type="text" id="cfName" placeholder="Your name"></div>
+          <div class="form-field"><label>Mobile</label><input type="text" id="cfMobile" placeholder="+974 33173729"></div>
+          <div class="form-field"><label>Message</label><textarea id="cfMsg" placeholder="How can we help?"></textarea></div>
+          <button class="btn btn-gold btn-block" onclick="sendContactForm()">Send via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CART PAGE -->
+  <section class="page" id="page-cart">
+    <div class="page-title-block">
+      <div class="eyebrow" style="font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-deep); font-weight:600;">Your Selection</div>
+      <h2 style="font-size:clamp(1.8rem,4vw,2.6rem);">Cart</h2>
+    </div>
+    <div id="cartContent"></div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-wrap">
+    <div>
+      <h4>Hossain Craftnest</h4>
+      <p>Premium craft, sewing, embroidery &amp; abaya accessories in Doha, Qatar.</p>
+      <p class="ar">مواد حرفية فاخرة في الدوحة، قطر</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="#home">Home</a>
+      <a href="#products">All Products</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="https://wa.me/97433173729" target="_blank">WhatsApp: +974 3317 3729</a>
+      <a href="mailto:hossain.craftnest1122@gmail.com">hossain.craftnest1122@gmail.com</a>
+      <a href="https://instagram.com/hossain_craftnest" target="_blank">@hossain_craftnest</a>
+      <p>Al Sadd, Doha, Qatar</p>
+    </div>
+  </div>
+  <div class="foot-bottom">© 2026 Hossain Craftnest. All rights reserved.</div>
+</footer>
+
+<a href="https://wa.me/97433173729" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">📲</a>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---------------- DATA ---------------- */
+const WHATSAPP_NUMBER = "97433173729";
+
+const CATEGORIES = [
+  "Crystal Stones","Rhinestones","Pearls","Lace","Abaya Accessories",
+  "Embroidery Materials","Sewing Accessories","Elastic Bands","Threads",
+  "Beads","Buttons","Zippers","Party Dress Accessories","Fashion Accessories"
+];
+
+const PRODUCTS = [
+  {
+    id:"polok", name:"Polok", category:"Beads",
+    colors:["black","white","pink","red","green","yellow","gray","blue"],
+    sizes:["3","4","5"], price:10, priceLabel:"QR 10",
+    images:["https://i.ibb.co/Pv9Q7qxs/IMG-1093.jpg"],
+    stock:"in", desc:"Versatile craft beads (Polok) available in a full range of colors and sizes — perfect for embroidery, jewelry making, and abaya embellishment."
+  },
+  {
+    id:"embroidery-thread-big", name:"Embroidery Thread (Big)", category:"Embroidery Materials",
+    colors:["black","off-white"], sizes:[], price:15, priceLabel:"QR 15",
+    images:["https://i.ibb.co/k2yFY1xW/IMG-0901.jpg"],
+    stock:"out", desc:"Premium large-spool embroidery thread, ideal for detailed hand and machine embroidery work."
+  },
+  {
+    id:"elastic", name:"Elastic", category:"Elastic Bands",
+    colors:["black","white"], sizes:["0.25 inch","0.50 inch","0.75 inch","1 inch","1.1 inch","1.5 inch","2 inch","3 inch"],
+    price:5, priceLabel:"QR 5 – 40", images:["https://i.ibb.co/dJBGXJL0/IMG-0951.jpg"],
+    stock:"in", desc:"High-quality elastic bands in multiple widths, suitable for tailoring, abaya making, and general sewing projects. Price varies by width selected."
+  },
+  {
+    id:"dori", name:"Dori", category:"Sewing Accessories",
+    colors:["black","white"], sizes:["1.75mm","1.50mm"], price:20, priceLabel:"QR 20",
+    images:["https://i.ibb.co/HDSBgc1N/IMG-0904.jpg"],
+    stock:"in", desc:"Durable Dori cord, commonly used for drawstrings, trims, and decorative finishing on garments."
+  },
+  {
+    id:"adda-thread", name:"Adda Thread", category:"Embroidery Materials",
+    colors:["white"], sizes:[], price:8, priceLabel:"QR 8",
+    images:["https://i.ibb.co/VWyM2NGk/IMG-0902.jpg"],
+    stock:"in", desc:"Fine Adda thread suited for traditional hand embroidery and detailed craft work."
+  },
+  {
+    id:"tangus", name:"Tangus", category:"Sewing Accessories",
+    colors:["white","black"], sizes:["12mm","14mm","15mm"], price:10, priceLabel:"QR 10",
+    images:["https://i.ibb.co/21fDr36Q/IMG-0899.jpg"],
+    stock:"in", desc:"Quality Tangus trim available in multiple widths, a staple for tailoring and abaya finishing touches."
+  },
+  {
+    id:"jori", name:"Jori (Japanese)", category:"Fashion Accessories",
+    colors:["gold","light gold","black","silver"], sizes:[], price:65, priceLabel:"QR 65",
+    images:["https://i.ibb.co/xtnfdf1B/IMG-0898.jpg"],
+    stock:"in", desc:"Premium Japanese Jori thread in rich metallic tones — perfect for luxury embroidery and abaya embellishment."
+  },
+  {
+    id:"plat-bids-lulu", name:"Plat Bids Lulu", category:"Pearls",
+    colors:["custom"], sizes:["No. 4"], price:10, priceLabel:"QR 10 / line", images:["https://i.ibb.co/67yQcFRx/IMG-0915.jpg"],
+    stock:"in", desc:"Elegant pearl string (Plat Bids Lulu), sold per line, customizable to your color preference for dress and abaya decoration."
+  }
+];
+
+const COLOR_HEX = {
+  black:"#15130F", white:"#FFFFFF", "off-white":"#F1ECE1", pink:"#E58AA0",
+  red:"#B0362A", green:"#3E7A4F", yellow:"#D9B93B", gray:"#8A8A82", blue:"#3C5C8A",
+  gold:"#C9A227", "light gold":"#E7C558", silver:"#C7C7C7", custom:"#C9A227"
+};
+
+/* ---------------- STATE ---------------- */
+let cart = [];
+let currentProductState = { product:null, color:null, size:null, qty:1, imgIndex:0 };
+let productFilters = { categories:[], colors:[], inStockOnly:false, sort:"none" };
+
+/* ---------------- ROUTING ---------------- */
+function router(){
+  const hash = location.hash.replace('#','') || 'home';
+  const [route, param] = hash.split('/');
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('nav.links a').forEach(a=>a.classList.remove('active'));
+
+  if(route === 'product' && param){
+    document.getElementById('page-product').classList.add('active');
+    loadProduct(param);
+  } else {
+    const pageEl = document.getElementById('page-'+route) || document.getElementById('page-home');
+    pageEl.classList.add('active');
+    const navA = document.querySelector(`nav.links a[data-route="${route}"]`);
+    if(navA) navA.classList.add('active');
+    if(route === 'products') renderProducts();
+    if(route === 'cart') renderCart();
+  }
+  window.scrollTo({top:0, behavior:'instant'});
+}
+window.addEventListener('hashchange', router);
+
+function toggleMenu(){ document.getElementById('navLinks').classList.toggle('open'); }
+function closeMenu(){ document.getElementById('navLinks').classList.remove('open'); }
+
+/* ---------------- RENDER HELPERS ---------------- */
+function money(p){ return "QR " + p; }
+
+function productCardHTML(p){
+  const badge = p.stock === 'in' ? '<span class="badge in">In Stock</span>' : '<span class="badge out">Out of Stock</span>';
+  return `
+  <div class="card" onclick="location.hash='product/${p.id}'">
+    <div class="thumb"><img src="${p.images[0]}" alt="${p.name}">${badge}</div>
+    <div class="info">
+      <span class="cat-tag">${p.category}</span>
+      <span class="pname">${p.name}</span>
+      <span class="price">${p.priceLabel || money(p.price)}</span>
+    </div>
+  </div>`;
+}
+
+function renderHome(){
+  document.getElementById('homeCatStrip').innerHTML = CATEGORIES.slice(0,8).map(c=>
+    `<a href="#products" class="cat-chip" onclick="presetCategory('${c}')">${c}</a>`).join('');
+  document.getElementById('featuredGrid').innerHTML = PRODUCTS.slice(0,4).map(productCardHTML).join('');
+}
+
+function presetCategory(cat){
+  productFilters = { categories:[cat], colors:[], inStockOnly:false, sort:"none" };
+}
+
+function renderFilterPanel(){
+  document.getElementById('catFilterList').innerHTML = CATEGORIES.map(c => `
+    <label><input type="checkbox" value="${c}" onchange="toggleCatFilter('${c}', this.checked)" ${productFilters.categories.includes(c) ? 'checked':''}> ${c}</label>
+  `).join('');
+
+  const allColors = [...new Set(PRODUCTS.flatMap(p=>p.colors))];
+  document.getElementById('colorFilterRow').innerHTML = allColors.map(c => `
+    <div class="swatch ${productFilters.colors.includes(c)?'selected':''}" style="background:${COLOR_HEX[c]||'#ccc'}" title="${c}" onclick="toggleColorFilter('${c}')"></div>
+  `).join('');
+
+  document.getElementById('inStockOnly').checked = productFilters.inStockOnly;
+  document.getElementById('sortSelect').value = productFilters.sort;
+}
+
+function toggleCatFilter(cat, checked){
+  if(checked) productFilters.categories.push(cat);
+  else productFilters.categories = productFilters.categories.filter(c=>c!==cat);
+  renderProducts();
+}
+function toggleColorFilter(color){
+  if(productFilters.colors.includes(color)) productFilters.colors = productFilters.colors.filter(c=>c!==color);
+  else productFilters.colors.push(color);
+  renderProducts();
+}
+function clearFilters(){
+  productFilters = { categories:[], colors:[], inStockOnly:false, sort:"none" };
+  renderProducts();
+}
+
+function renderProducts(){
+  productFilters.inStockOnly = document.getElementById('inStockOnly').checked;
+  productFilters.sort = document.getElementById('sortSelect').value;
+  renderFilterPanel();
+
+  let list = PRODUCTS.filter(p=>{
+    if(productFilters.categories.length && !productFilters.categories.includes(p.category)) return false;
+    if(productFilters.colors.length && !p.colors.some(c=>productFilters.colors.includes(c))) return false;
+    if(productFilters.inStockOnly && p.stock !== 'in') return false;
+    return true;
+  });
+
+  if(productFilters.sort === 'low') list.sort((a,b)=>a.price-b.price);
+  if(productFilters.sort === 'high') list.sort((a,b)=>b.price-a.price);
+
+  document.getElementById('resultCount').textContent = `${list.length} product${list.length!==1?'s':''} found`;
+  document.getElementById('allProductsGrid').innerHTML = list.length ? list.map(productCardHTML).join('') :
+    `<div class="empty-state" style="grid-column:1/-1;"><div class="big">🔍</div>No products match these filters.</div>`;
+}
+
+function loadProduct(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  if(!p){ location.hash = 'products'; return; }
+  currentProductState = { product:p, color:p.colors[0]||null, size:p.sizes[0]||null, qty:1, imgIndex:0 };
+
+  document.getElementById('pdBreadCat').textContent = p.category;
+  document.getElementById('pdBreadName').textContent = p.name;
+  document.getElementById('pdMainImg').src = p.images[0];
+  document.getElementById('pdThumbs').innerHTML = p.images.map((img,i)=>
+    `<div class="t ${i===0?'active':''}" onclick="setMainImg(${i})"><img src="${img}"></div>`).join('');
+  document.getElementById('pdCat').textContent = p.category;
+  document.getElementById('pdName').textContent = p.name;
+  document.getElementById('pdPrice').textContent = p.priceLabel || money(p.price);
+  document.getElementById('pdDesc').textContent = p.desc;
+  document.getElementById('pdQty').textContent = 1;
+
+  const stockEl = document.getElementById('pdStock');
+  stockEl.textContent = p.stock === 'in' ? '✓ In Stock' : '✕ Out of Stock';
+  stockEl.className = 'stock-line ' + (p.stock === 'in' ? 'in' : 'out');
+
+  document.getElementById('pdColorBlock').style.display = p.colors.length ? 'block':'none';
+  document.getElementById('pdColorRow').innerHTML = p.colors.map((c,i)=>
+    `<div class="swatch ${i===0?'selected':''}" style="background:${COLOR_HEX[c]||'#ccc'}" title="${c}" onclick="selectColor('${c}', this)"></div>`).join('');
+
+  document.getElementById('pdSizeBlock').style.display = p.sizes.length ? 'block':'none';
+  document.getElementById('pdSizeRow').innerHTML = p.sizes.map((s,i)=>
+    `<div class="size-chip ${i===0?'selected':''}" onclick="selectSize('${s}', this)">${s}</div>`).join('');
+
+  document.getElementById('relatedGrid').innerHTML = PRODUCTS.filter(x=>x.category===p.category && x.id!==p.id).slice(0,4).map(productCardHTML).join('')
+    || PRODUCTS.filter(x=>x.id!==p.id).slice(0,4).map(productCardHTML).join('');
+
+  window.scrollTo({top:0, behavior:'instant'});
+}
+
+function setMainImg(i){
+  currentProductState.imgIndex = i;
+  document.getElementById('pdMainImg').src = currentProductState.product.images[i];
+  document.querySelectorAll('.pd-thumbs .t').forEach((t,idx)=>t.classList.toggle('active', idx===i));
+}
+function selectColor(color, el){
+  currentProductState.color = color;
+  el.parentElement.querySelectorAll('.swatch').forEach(s=>s.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function selectSize(size, el){
+  currentProductState.size = size;
+  el.parentElement.querySelectorAll('.size-chip').forEach(s=>s.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function changeQty(delta){
+  let q = currentProductState.qty + delta;
+  if(q < 1) q = 1;
+  currentProductState.qty = q;
+  document.getElementById('pdQty').textContent = q;
+}
+
+/* ---------------- CART ---------------- */
+function addToCart(buyNow){
+  const s = currentProductState;
+  if(s.product.stock !== 'in'){ showToast("This item is currently out of stock."); return; }
+  const existing = cart.find(c=>c.id===s.product.id && c.color===s.color && c.size===s.size);
+  if(existing){ existing.qty += s.qty; }
+  else{
+    cart.push({ id:s.product.id, name:s.product.name, image:s.product.images[0], price:s.product.price,
+      priceLabel:s.product.priceLabel, color:s.color, size:s.size, qty:s.qty });
+  }
+  updateCartCount();
+  if(buyNow){ location.hash = 'cart'; }
+  else{ showToast(`${s.product.name} added to cart`); }
+}
+
+function updateCartCount(){
+  document.getElementById('cartCount').textContent = cart.reduce((n,c)=>n+c.qty,0);
+}
+
+function renderCart(){
+  const wrap = document.getElementById('cartContent');
+  if(!cart.length){
+    wrap.innerHTML = `<div class="empty-state"><div class="big">🛍</div>Your cart is empty.<br><br><a href="#products" class="btn btn-gold">Browse Products</a></div>`;
+    return;
+  }
+  let total = 0;
+  const itemsHTML = cart.map((c,i)=>{
+    total += c.price * c.qty;
+    return `
+    <div class="cart-item">
+      <img src="${c.image}" alt="${c.name}">
+      <div>
+        <div class="ci-name">${c.name}</div>
+        <div class="ci-meta">${c.color?('Color: '+c.color+' '):''}${c.size?('· Size: '+c.size):''}</div>
+        <div class="ci-remove" onclick="removeFromCart(${i})">Remove</div>
+      </div>
+      <div class="qty-box">
+        <button onclick="updateCartQty(${i},-1)">−</button><span>${c.qty}</span><button onclick="updateCartQty(${i},1)">+</button>
+      </div>
+      <div style="font-weight:600;">QR ${c.price * c.qty}</div>
+    </div>`;
+  }).join('');
+
+  wrap.innerHTML = `
+    <div class="products-layout">
+      <div>${itemsHTML}</div>
+      <div class="cart-summary">
+        <h3 style="margin-bottom:18px;">Order Summary</h3>
+        <div class="sum-row"><span>Subtotal</span><span>QR ${total}</span></div>
+        <div class="sum-row"><span>Delivery</span><span>All over Doha</span></div>
+        <div class="sum-row"><span>Payment</span><span>Cash on Delivery</span></div>
+        <div class="sum-row total"><span>Total</span><span>QR ${total}</span></div>
+        <button class="btn btn-whatsapp btn-block" style="margin-top:16px;" onclick="checkoutWhatsapp()">Confirm Order via WhatsApp</button>
+        <a href="#products" class="btn btn-outline btn-block" style="margin-top:10px;">Continue Shopping</a>
+      </div>
+    </div>`;
+}
+
+function updateCartQty(i, delta){
+  cart[i].qty += delta;
+  if(cart[i].qty < 1) cart.splice(i,1);
+  updateCartCount();
+  renderCart();
+}
+function removeFromCart(i){ cart.splice(i,1); updateCartCount(); renderCart(); }
+
+function checkoutWhatsapp(){
+  if(!cart.length) return;
+  let msg = "Hello Hossain Craftnest, I'd like to place an order:%0A%0A";
+  let total = 0;
+  cart.forEach(c=>{
+    total += c.price*c.qty;
+    msg += `• ${c.name}${c.color?' ('+c.color+')':''}${c.size?' - '+c.size:''} x${c.qty} = QR ${c.price*c.qty}%0A`;
+  });
+  msg += `%0ATotal: QR ${total}%0APayment: Cash on Delivery%0ADelivery: Doha%0A%0AMy delivery address: `;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
+}
+
+function whatsappOrder(){
+  const s = currentProductState;
+  const msg = `Hello Hossain Craftnest, I'm interested in:%0A${s.product.name}${s.color?' ('+s.color+')':''}${s.size?' - Size '+s.size:''} x${s.qty} — ${s.product.priceLabel||money(s.product.price)}`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
+}
+
+function sendContactForm(){
+  const name = document.getElementById('cfName').value.trim();
+  const mobile = document.getElementById('cfMobile').value.trim();
+  const message = document.getElementById('cfMsg').value.trim();
+  if(!message){ showToast("Please write a message first."); return; }
+  const msg = `Hello Hossain Craftnest,%0AName: ${name||'-'}%0AMobile: ${mobile||'-'}%0AMessage: ${message}`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
+}
+
+/* ---------------- TOAST ---------------- */
+let toastTimer;
+function showToast(text){
+  const t = document.getElementById('toast');
+  t.textContent = text;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 2400);
+}
+
+/* ---------------- INIT ---------------- */
+renderHome();
+renderFilterPanel();
+router();
+</script>
+</body>
+</html>
