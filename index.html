@@ -348,18 +348,38 @@ function closeMenu(){ document.getElementById('navLinks').classList.remove('open
 
 /* ---------------- RENDER HELPERS ---------------- */
 function money(p){ return "QR " + p; }
-
 function productCardHTML(p){
-  const badge = p.stock === 'in' ? '<span class="badge in">In Stock</span>' : '<span class="badge out">Out of Stock</span>';
+  const badge = p.stock === 'in'
+    ? '<span class="badge in">In Stock</span>'
+    : '<span class="badge out">Out of Stock</span>';
+
   return `
-  <div class="card" onclick="location.hash='product/${p.id}'">
-    <div class="thumb"><img src="${p.images[0]}" alt="${p.name}">${badge}</div>
-    <div class="info">
-      <span class="cat-tag">${p.category}</span>
-      <span class="pname">${p.name}</span>
-      <span class="price">${p.priceLabel || money(p.price)}</span>
+    <div class="card" onclick="location.hash='product/${p.id}'">
+
+      <div class="thumb">
+        <img
+          src="${p.images[0]}"
+          alt="${p.name}"
+          loading="lazy"
+          onerror="this.src='https://via.placeholder.com/600x600?text=Hossain+Craftnest';"
+        >
+        ${badge}
+
+        <div class="quick-view">
+          View Product →
+        </div>
+      </div>
+
+      <div class="info">
+        <span class="cat-tag">${p.category}</span>
+        <span class="pname">${p.name}</span>
+        <span class="price">${p.priceLabel || money(p.price)}</span>
+      </div>
+
     </div>
-  </div>`;
+  `;
+}
+
 }
 
 function renderHome(){
