@@ -1038,3 +1038,27 @@ footer{
   }
 
 }
+.card .thumb{
+  position:relative;
+}
+
+.quick-view{
+  position:absolute;
+  left:12px;
+  right:12px;
+  bottom:12px;
+  padding:10px;
+  text-align:center;
+  background:rgba(33,29,24,.92);
+  color:#fff;
+  font-size:.7rem;
+  letter-spacing:.05em;
+  opacity:0;
+  transform:translateY(8px);
+  transition:.25s ease;
+}
+
+.card:hover .quick-view{
+  opacity:1;
+  transform:translateY(0);
+}
